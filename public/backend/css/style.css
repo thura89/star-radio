@@ -1,0 +1,209 @@
+/* common backend css */
+
+p {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+hr {
+    background-color: #3F6AD8 !important;
+}
+
+h5 {
+    text-transform: uppercase;
+    font-size: .8rem;
+    margin: .75rem 0;
+    font-weight: bold;
+    color: #3f6ad8;
+    white-space: nowrap;
+}
+
+textarea {
+    height: 150px !important;
+}
+
+.app-main .app-main__inner {
+    padding: 30px !important;
+}
+
+.app-page-title {
+    padding: 20px 30px 20px 30px !important;
+    margin: -30px -30px 20px !important;
+}
+
+.disnone {
+    display: none;
+}
+
+
+/* Admin Login */
+
+.ftco-section {
+    padding: 3em 0;
+}
+
+.heading-section {
+    font-size: 28px;
+    color: #000;
+}
+
+.login-wrap {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+}
+
+.login-wrap h3 {
+    font-weight: 300;
+}
+
+.login-wrap .icon {
+    width: 180px;
+    height: 180px;
+    background-image: url('../images/star-fm-logo.jpeg');
+    background-size: 180px;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.login-wrap .icon span {
+    color: #fff;
+}
+
+.upload-img {
+    padding: .5rem;
+    line-height: 0;
+}
+
+.upimg {
+    display: inline-block;
+    width: calc(16.6666667% - 1rem);
+    padding-bottom: calc(16.6666667% - 1rem);
+    height: 0;
+    position: relative;
+    margin: .5rem;
+    /* background: #f3f3f3; */
+    border: 1px solid rgba(26, 54, 126, 0.125);
+    cursor: pointer;
+}
+
+.upimg:hover {
+    background: #f3f3f3;
+}
+
+.upimg img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+
+/* Action */
+
+.action-icon i {
+    font-size: 18px;
+}
+
+.action-icon a {
+    padding: 5px;
+}
+
+
+/* Image Upload */
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}
+
+
+/* Fixes for IE < 8 */
+
+@media screen\9 {
+    .fileinput-button input {
+        filter: alpha(opacity=0);
+        font-size: 100%;
+        height: 100%;
+    }
+}
+
+.uploaded_image,
+.uploaded_image>img {
+    width: 95px;
+    height: 95px;
+}
+
+.uploaded_image {
+    float: left;
+    position: relative;
+    margin-left: 14px;
+}
+
+.uploaded_image>img {
+    position: absolute;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+.img_rmv {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    padding: 22px;
+    width: 95px;
+    height: 95px;
+}
+
+.uploaded_image>img:hover+.img_rmv {
+    visibility: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.img_rmv:hover {
+    visibility: visible;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none !important;
+}
+
+.img_rmv:focus {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+i.profile_img {
+    font-size: 80px;
+}
+
+.preview_profile_photo img {
+    width: 100px;
+    border: 1px solid #ddd;
+}
+
+.preview_cover_photo img {
+    width: 120px;
+    border: 1px solid #ddd;
+}
+
+.preview_image img {
+    width: 100px;
+    border: 1px solid #ddd;
+}

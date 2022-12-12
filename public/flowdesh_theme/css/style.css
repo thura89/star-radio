@@ -1,0 +1,86 @@
+.icon {
+    width: 160px;
+    height: 160px;
+    background-image: url('/backend/images/star-fm-logo.jpeg');
+    background-size: 160px;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.layout-login-centered-boxed__form{
+    padding-top: 0px !important;
+}
+/* @media (min-width: 1024px){
+    .app-fab--absolute {
+        bottom: 1rem!important;
+        right: 1rem !important;
+        border:1px solid red;
+    }
+} */
+.app-fab--absolute {
+    bottom: 1rem!important;
+    right: 1rem !important;
+}
+
+.upload-img {
+    padding: .5rem;
+    line-height: 0;
+}
+
+.upimg {
+    display: inline-block;
+    width: calc(16.6666667% - 1rem);
+    padding-bottom: calc(16.6666667% - 1rem);
+    height: 0;
+    position: relative;
+    margin: .5rem;
+    /* background: #f3f3f3; */
+    border: 1px solid rgba(26, 54, 126, 0.125);
+    cursor: pointer;
+}
+
+.upimg:hover {
+    background: #f3f3f3;
+}
+
+.upimg img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+
+/* Action */
+
+.action-icon i {
+    font-size: 18px;
+}
+
+.action-icon a {
+    padding: 5px;
+}
+
+
+/* Image Upload */
+
+.fileinput-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+}

@@ -16,6 +16,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('liveradio:cron')->everyMinute();
+        // $schedule->call(function () {
+        //     info('AutoPlay Test');
+        // })->everyMinute();
     }
 
     /**
