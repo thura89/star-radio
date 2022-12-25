@@ -22,186 +22,52 @@
                     <span>StarRadio</span>
                 </a>
 
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      {{ Str::ucfirst(Session::get('locale')) }}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                      <a href="{{ url('/locale/en') }}" class="dropdown-item">En</a>
-                      <a href="{{ url('/locale/mm')}}" class="dropdown-item">Mn</a>
-                    </div>
-                  </div>
-                <ul class="nav navbar-nav ml-auto d-none d-md-flex">
-                    <li class="nav-item dropdown">
-                        <div id="notifications_menu"
-                            class="dropdown-menu dropdown-menu-right navbar-notifications-menu">
-                            <div class="dropdown-item d-flex align-items-center py-2">
-                                <span class="flex navbar-notifications-menu__title m-0">Notifications</span>
-                                <a href="javascript:void(0)" class="text-muted"><small>Clear all</small></a>
+                
+
+                <ul class="nav navbar-nav d-none d-sm-flex navbar-height align-items-center">
+                    <li class="nav-item mr-2">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ Str::upper(Session::get('locale')) }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <a href="{{ url('/locale/en') }}" class="dropdown-item">EN</a>
+                              <a href="{{ url('/locale/mm')}}" class="dropdown-item">MM</a>
                             </div>
-                            <div class="navbar-notifications-menu__content" data-perfect-scrollbar>
-                                <div class="py-2">
-
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg"
-                                                    alt="Avatar" class="avatar-img rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="">A.Demian</a> left a comment on <a
-                                                href="">FlowDash</a><br>
-                                            <small class="text-muted">1 minute ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title bg-purple rounded-circle"><i
-                                                            class="material-icons icon-16pt">person_add</i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            New user <a href="#">Peter Parker</a> signed up.<br>
-                                            <small class="text-muted">1 hour ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title rounded-circle">JD</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                            <div>Hey, how are you? What about our next meeting</div>
-                                            <small class="text-muted">2 minutes ago</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg"
-                                                    alt="Avatar" class="avatar-img rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="">A.Demian</a> left a comment on <a
-                                                href="">FlowDash</a><br>
-                                            <small class="text-muted">1 minute ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title bg-purple rounded-circle"><i
-                                                            class="material-icons icon-16pt">person_add</i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            New user <a href="#">Peter Parker</a> signed up.<br>
-                                            <small class="text-muted">1 hour ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title rounded-circle">JD</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                            <div>Hey, how are you? What about our next meeting</div>
-                                            <small class="text-muted">2 minutes ago</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <div class="avatar avatar-sm" style="width: 32px; height: 32px;">
-                                                <img src="assets/images/256_daniel-gaffey-1060698-unsplash.jpg"
-                                                    alt="Avatar" class="avatar-img rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="">A.Demian</a> left a comment on <a
-                                                href="">FlowDash</a><br>
-                                            <small class="text-muted">1 minute ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title bg-purple rounded-circle"><i
-                                                            class="material-icons icon-16pt">person_add</i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            New user <a href="#">Peter Parker</a> signed up.<br>
-                                            <small class="text-muted">1 hour ago</small>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item d-flex">
-                                        <div class="mr-3">
-                                            <a href="#">
-                                                <div class="avatar avatar-xs" style="width: 32px; height: 32px;">
-                                                    <span class="avatar-title rounded-circle">JD</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="#">Big Joe</a> <small class="text-muted">wrote:</small><br>
-                                            <div>Hey, how are you? What about our next meeting</div>
-                                            <small class="text-muted">2 minutes ago</small>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <a href="javascript:void(0);"
-                                class="dropdown-item text-center navbar-notifications-menu__footer">View
-                                All</a>
-                        </div>
+                        </div>        
                     </li>
-                </ul>
-
-                <ul class="nav navbar-nav d-none d-sm-flex border-left navbar-height align-items-center">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown border-left">
                         <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
                             data-caret="false">
                             <span class="mr-1 d-flex-inline">
-                                <span class="text-light">Adrian D.</span>
+                                <span class="text-light">{{ Auth::user()->name }}</span>
                             </span>
-                            <img src="assets/images/avatar/demi.png" class="rounded-circle" width="32"
+                            <img src="{{ Auth::user()->profile_img_path() }}" class="rounded-circle" width="32"
                                 alt="Frontted">
                         </a>
                         <div id="account_menu" class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item-text dropdown-item-text--lh">
-                                <div><strong>Adrian Demian</strong></div>
-                                <div class="text-muted">@adriandemian</div>
+                                <div><strong>{{ Auth::user()->name }}</strong></div>
+                                <div class="text-muted">{{ Auth::user()->email }}</div>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.html"><i class="material-icons">dvr</i>
-                                Dashboard</a>
-                            <a class="dropdown-item" href="profile.html"><i class="material-icons">account_circle</i>
+                            <a class="dropdown-item" href="{{ route('admin.users.show', Auth::user()->id )}}"><i class="material-icons">account_circle</i>
                                 My profile</a>
-                            <a class="dropdown-item" href="edit-account.html"><i class="material-icons">edit</i> Edit
+                            <a class="dropdown-item" href="{{ route('admin.users.edit', Auth::user()->id )}}"><i class="material-icons">edit</i> Edit
                                 account</a>
+                            <a class="dropdown-item" href="{{ route('admin.change_password')}}"><i class="material-icons">vpn_key</i> Change Password
+                                </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login.html"><i class="material-icons">exit_to_app</i>
-                                Logout</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                <i class="material-icons">exit_to_app</i>
+                                 {{ __('Logout') }}
+                             </a>
+
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                 @csrf
+                             </form>
                         </div>
                     </li>
                 </ul>

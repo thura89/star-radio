@@ -207,3 +207,9 @@ i.profile_img {
     width: 100px;
     border: 1px solid #ddd;
 }
+
+article.articleSingle figure {
+    border:1px solid red !important;
+    max-height: 300px!important;
+    margin-bottom: 40px;
+}

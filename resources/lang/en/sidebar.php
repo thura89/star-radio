@@ -13,11 +13,20 @@ return [
     |
     */
 
+    
+    'dashboards' => 'Dashboards',
+    'users' => 'User Management',
+    'program' => 'Program',
+    'category' => 'Category',
     'news' => 'News',
     'other_news' => 'Other News',
     'events' => 'Events',
     'noble' => 'Noble',
     'ads' => 'Ads',
-    'slider' => 'Sliders'
+    'slider' => 'Photo Sliders',
+    'play_audio' => 'Play Audio',
+    'song_request' => 'Song Request',
+    'contact' => 'Contact',
+    'about' => 'About'
 
 ];

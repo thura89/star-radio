@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title', 'Create News')
-@section('news-active', 'mm-active')
+@section('other_news-active', 'mm-active')
 
 @section('content')
 <div class="container-fluid page__heading-container">
@@ -35,8 +35,6 @@
                         @foreach (config('const.others_news') as $key => $news)
                             <option value="{{ $key }}">{{ $news }}</option>    
                         @endforeach
-                        
-                        
                     </select>
                     <small class="form-text text-muted">@lang('news.news_type_desc')</small>
                 </div>

@@ -1,0 +1,11 @@
+article.articleSingle figure{
+    max-height: 300px !important;
+    margin-bottom: 40px;
+    border-radius: 3px !important;
+}
+article.articleSingle figure img{
+    border-radius: 3px !important;
+}
+.parallax_one {
+    background-image: asset('/public/starfm/assets/demo-data/parallax.jpg') !important;
+}

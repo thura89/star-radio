@@ -13,4 +13,11 @@ class LocalizationController extends Controller
         Session::put('locale',$locale);
         return redirect()->back();
     }
+
+    public function homesetlang($locale)
+    {
+        App::setLocale($locale);
+        $data = Session::put('locale',$locale);
+        return $data;
+    }
 }

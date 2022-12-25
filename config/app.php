@@ -235,7 +235,7 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
         // Custom
-        'Helper' => App\Libs\Helper::class,
+        'Helper'=> App\Http\Helpers\Helper::class,
     ],
 
 ];

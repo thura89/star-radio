@@ -12,7 +12,7 @@
 
     
     <!-- App CSS -->
-    <link rel="stylesheet" href="{{ asset('flowdesh_theme/custom/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('flowdesh_theme/css/style.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('flowdesh_theme/css/app.css') }}" rel="stylesheet">
     
     <!-- Material Design Icons -->
@@ -20,6 +20,8 @@
     
     <!-- Font Awesome FREE Icons -->
     <link type="text/css" href="{{ asset('flowdesh_theme/css/vendor-fontawesome-free.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
     
 
 </head>
@@ -76,30 +78,80 @@
         
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-4">
                     <button class="btn btn-block btn-primary" type="submit">{{ __('Login') }}</button>
                 </div>
         
-                <div class="form-group text-center">
+                {{-- <div class="form-group text-center">
                     @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a> 
                     <br>
                     @endif
-                    @if (Route::has('register'))
-                        Don't have an account?    
-                        <a class="text-body text-underline" href="{{ route('register') }}">Sign up!</a>
-                        
-                    @endif
-                </div>
+                </div> --}}
             </form>
         </div>
     </div>
 
-     <!-- jQuery -->
+<!-- jQuery -->
 <script src="{{ asset('flowdesh_theme/vendor/jquery.min.js') }}"></script>
 
 <!-- Bootstrap -->
 <script src="{{ asset('flowdesh_theme/vendor/bootstrap.min.js') }}"></script>
+
+<!-- Laravel Javascript Validation -->
+<script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+
+{{-- Sweet alert --}}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function() {
+
+        @if (session('fail_validator'))
+            const sec_fail = @php echo session('fail_validator') @endphp;
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            const propertyValues=Object.values(sec_fail);  
+            console.log(propertyValues);
+            Toast.fire({
+                    icon: 'error',
+                    title: propertyValues,
+            });
+            
+        @endif
+        @if (session('fail'))
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            Toast.fire({
+                    icon: 'error',
+                    title: '{{session("fail")}}',
+            });
+            
+        @endif
+
+    });
+</script>
 
 </body>
 

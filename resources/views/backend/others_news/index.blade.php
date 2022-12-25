@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title', 'News')
-@section('news-active', 'mm-active')
+@section('other_news-active', 'mm-active')
 @section('styles')
 <!-- Dropzone -->
 

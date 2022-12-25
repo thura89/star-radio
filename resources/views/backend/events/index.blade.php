@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title', 'Event')
-@section('Events-active', 'mm-active')
+@section('events-active', 'mm-active')
 @section('styles')
 
 @endsection

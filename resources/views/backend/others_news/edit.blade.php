@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('title', 'Create News')
-@section('news-active', 'mm-active')
+@section('other_news-active', 'mm-active')
 
 @section('content')
 <div class="container-fluid page__heading-container">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePassword;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -45,7 +46,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {   
         $validate = Validator::make($request->all(), [
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
