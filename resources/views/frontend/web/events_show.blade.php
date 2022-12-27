@@ -128,8 +128,8 @@
 @section('content')
 
     <!--=================================================
-                                                                                            gallery
-                                                                                            ==================================================-->
+                        gallery
+                        ==================================================-->
 
     <section>
         <header class="parallax parallax_two style3 text-center text-uppercase text-bold" data-stellar-background-ratio="0.5">
@@ -156,8 +156,8 @@
         </header>
         <!--section header-->
         <!--=================================
-                                                                                        Blog Section
-                                                                                        =================================-->
+                        Blog Section
+                        =================================-->
         <div>
             <div class="container">
                 <article class="articleSingle">

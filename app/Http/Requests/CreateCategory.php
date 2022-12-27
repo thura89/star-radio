@@ -26,7 +26,8 @@ class CreateCategory extends FormRequest
         return [
             'title' => 'required',
             'descriptions' => 'required',
-            'image' => 'required'
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg',
         ];
     }
 }

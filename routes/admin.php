@@ -55,6 +55,7 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
 
     // Audio
     Route::resource('/audios', AudioController::class);
+    Route::get('/audios/live/{id}', [AudioController::class,'liveRadio'])->name('liveRadio');
 
     // Song Request
     Route::resource('/song_requests', SongRequestController::class);

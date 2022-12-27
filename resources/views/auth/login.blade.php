@@ -5,24 +5,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>StarFM Admin Login</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
 
-    
+    <!--=================================
+Favicon
+=================================-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('starfm_favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('starfm_favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('starfm_favicon/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('starfm_favicon/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('starfm_favicon/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('starfm_favicon/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('starfm_favicon/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('starfm_favicon/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('starfm_favicon/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('starfm_favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('starfm_favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('starfm_favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('starfm_favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('starfm_favicon/manifest.json') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('starfm_favicon/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset('flowdesh_theme/css/style.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('flowdesh_theme/css/app.css') }}" rel="stylesheet">
-    
+
     <!-- Material Design Icons -->
     <link type="text/css" href="{{ asset('flowdesh_theme/css/vendor-material-icons.css') }}" rel="stylesheet">
-    
+
     <!-- Font Awesome FREE Icons -->
     <link type="text/css" href="{{ asset('flowdesh_theme/css/vendor-fontawesome-free.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
-    
+
 
 </head>
 
@@ -30,11 +49,12 @@
 
     <div class="row justify-content-center align-content-center" style="height: 100vh;">
         <div class="layout-login-centered-boxed__form card">
-            <div class="d-flex flex-column justify-content-center align-items-center mt-2 navbar-light">
-                <a href="index.html" class="navbar-brand flex-column align-items-center mr-0" style="min-width: 0">
+            <div class="d-flex flex-column justify-content-center align-items-center mt-5 navbar-light">
+                <a href="{{ route('home.index') }}" class="navbar-brand flex-column align-items-center mr-0"
+                    style="min-width: 0">
                     <div class="icon d-flex align-items-center justify-content-center"></div>
                 </a>
-        
+
             </div>
             {{-- Flash Message --}}
             {{-- <div class="alert alert-soft-success d-flex" role="alert">
@@ -46,7 +66,9 @@
                 <div class="form-group">
                     <label class="text-label" for="email">Email Address:</label>
                     <div class="input-group input-group-merge">
-                        <input id="email" type="email" required="" class="form-control form-control-prepended" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="john@doe.com">
+                        <input id="email" type="email" required="" class="form-control form-control-prepended"
+                            @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required
+                            autocomplete="email" autofocus placeholder="john@doe.com">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="far fa-envelope"></span>
@@ -62,26 +84,29 @@
                 <div class="form-group">
                     <label class="text-label" for="password">Password:</label>
                     <div class="input-group input-group-merge">
-                        <input id="password" type="password" class="form-control form-control-prepended @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" autofocus placeholder="Password">
-        
+                        <input id="password" type="password"
+                            class="form-control form-control-prepended @error('password') is-invalid @enderror"
+                            name="password" required autocomplete="current-password" autofocus
+                            placeholder="Password">
+
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="fa fa-key"></span>
                             </div>
                         </div>
-        
+
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-        
+
                     </div>
                 </div>
                 <div class="form-group mt-4">
                     <button class="btn btn-block btn-primary" type="submit">{{ __('Login') }}</button>
                 </div>
-        
+
                 {{-- <div class="form-group text-center">
                     @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a> 
@@ -92,66 +117,64 @@
         </div>
     </div>
 
-<!-- jQuery -->
-<script src="{{ asset('flowdesh_theme/vendor/jquery.min.js') }}"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('flowdesh_theme/vendor/jquery.min.js') }}"></script>
 
-<!-- Bootstrap -->
-<script src="{{ asset('flowdesh_theme/vendor/bootstrap.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('flowdesh_theme/vendor/bootstrap.min.js') }}"></script>
 
-<!-- Laravel Javascript Validation -->
-<script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+    <!-- Laravel Javascript Validation -->
+    <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
 
-{{-- Sweet alert --}}
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(document).ready(function() {
+    {{-- Sweet alert --}}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
 
-        @if (session('fail_validator'))
-            const sec_fail = @php echo session('fail_validator') @endphp;
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            const propertyValues=Object.values(sec_fail);  
-            console.log(propertyValues);
-            Toast.fire({
+            @if (session('fail_validator'))
+                const sec_fail = @php echo session('fail_validator') @endphp;
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                const propertyValues = Object.values(sec_fail);
+                console.log(propertyValues);
+                Toast.fire({
                     icon: 'error',
                     title: propertyValues,
-            });
-            
-        @endif
-        @if (session('fail'))
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-            Toast.fire({
+                });
+            @endif
+            @if (session('fail'))
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
                     icon: 'error',
-                    title: '{{session("fail")}}',
-            });
-            
-        @endif
+                    title: '{{ session('fail') }}',
+                });
+            @endif
 
-    });
-</script>
+        });
+    </script>
 
 </body>
 

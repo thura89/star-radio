@@ -25,7 +25,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::query();
+            $data = User::query()->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('name',function($each){
@@ -62,7 +62,8 @@ class UsersController extends Controller
                         })
                         
                         ->editColumn('login_at',function($each){
-                            return Carbon::parse($each->login_at)->diffForHumans();
+                            return $each->login_at ? Carbon::parse($each->login_at)->diffForHumans() : '-';
+                            
                         })
                         ->editColumn('updated_at',function($each){
                             return Carbon::parse($each->created_at)->format('d-m-y H:i:s');

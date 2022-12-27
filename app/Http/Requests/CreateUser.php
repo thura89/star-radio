@@ -30,7 +30,9 @@ class CreateUser extends FormRequest
             'address' => 'required',
             'description' => 'required',
             'profile_photo' => 'required',
+            'profile_photo.*' => 'image|mimes:jpeg,png,jpg',
             'cover_photo' => 'required',
+            'cover_photo.*' => 'image|mimes:jpeg,png,jpg',
             'user_type' => 'required',
         ];
     }

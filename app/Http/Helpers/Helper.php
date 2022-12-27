@@ -26,7 +26,7 @@ class Helper{
     }
 
     public static function Radio() {
-        $data = Audio::latest()->first();
+        $data = Audio::where('series_id',1)->latest()->first();
         return $data;
     }
 }

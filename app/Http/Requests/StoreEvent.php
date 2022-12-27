@@ -28,8 +28,10 @@ class StoreEvent extends FormRequest
             'location' => 'required',
             'event_date' => 'required',
             'images' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg',
             'body' => 'required',
             'event_photo' => 'required',
+            'event_photo.*' => 'image|mimes:jpeg,png,jpg',
             
         ];
     }

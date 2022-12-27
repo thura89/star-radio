@@ -109,7 +109,7 @@
                 @if (request()->route()->named('admin.users.edit'))
                     @if(Auth::user()->user_type == config('const.administrator'))
                         <div class="form-group">
-                            <a href="#" class="btn btn-light reset" data-id="{{ $user->id }}"><i class="material-icons">build</i>Reset Password</a>    
+                            <a href="#" class="btn btn-light reset" data-id="{{ $user->id }}"><i class="material-icons">build</i>Reset Password</a>  <span>DefaultPassword - starfm@changeme</span>  
                         </div>
                     @endif
                 @endif

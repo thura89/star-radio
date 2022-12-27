@@ -23,7 +23,7 @@ class ProgramController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Program::query()->with('category');
+            $data = Program::query()->with('category')->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('image',function($each){

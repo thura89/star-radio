@@ -27,6 +27,7 @@ class StoreNews extends FormRequest
             'title' => 'required',
             'news_category' => 'required',
             'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg',
             'body' => 'required',
         ];
     }

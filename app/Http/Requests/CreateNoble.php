@@ -27,7 +27,9 @@ class CreateNoble extends FormRequest
             'title' => 'required',
             'noble_category' => 'required',
             'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg',
             'download_file' => 'required',
+            'download_file.*' => 'file|mimes:pdf',
             'body' => 'required',
         ];
     }

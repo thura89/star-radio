@@ -32,6 +32,7 @@
                             <th>Title</th>
                             <th>Descriptions</th>
                             <th>Audio</th>
+                            <th>Live Radio</th>
                             <th>updated_at</th>
                             <th style="width: 170px;">Action</th>
                         </tr>
@@ -71,7 +72,11 @@
                     },
                     {
                         data: 'files',
-                        name: 'files'
+                        name: 'files',
+                    },
+                    {
+                        data: 'live-active',
+                        name: 'live-active',
                     },
                     {
                         data: 'updated_at',
@@ -121,6 +126,39 @@
                         swal("Your content is safe!");
                     }
                 });
+            });
+
+            
+            $(document).on('click', '.liveradio', function(e) {
+                e.preventDefault();
+                var id = $(this).data('id');
+                swal({
+                    title: "Are you sure?",
+                    text: "you want to live this audio, It will be automative change",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((result) => {
+                    if (result) {
+                        $.ajax({
+                            url: '/admin/audios/live/' + id,
+                            type: 'Get',
+                            data: {
+                                '_token': "{{ csrf_token() }}",
+                            },
+                            success: function(data) {
+                                swal("Successfully changed Live", {
+                                    icon: "success",
+                                }).then(() => {
+                                    location.reload();
+                                });
+                            }
+                        });
+                    } else {
+                        swal("Your content is safe!");
+                    }
+                });
+                
             });
 
             

@@ -7,10 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
 
+    <!--=================================
+        Favicon
+        =================================-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('starfm_favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('starfm_favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('starfm_favicon/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('starfm_favicon/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('starfm_favicon/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('starfm_favicon/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('starfm_favicon/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('starfm_favicon/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('starfm_favicon/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('starfm_favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('starfm_favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('starfm_favicon/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('starfm_favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('starfm_favicon/manifest.json') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('starfm_favicon/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
 
-    <meta name="csrf-token" content="{{ csrf_token() }}" >
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Perfect Scrollbar -->
     <link type="text/css" href="{{ asset('flowdesh_theme/vendor/perfect-scrollbar.css') }}" rel="stylesheet">
@@ -57,7 +77,8 @@
 
 <body class="layout-default">
 
-    <div class="preloader"><img src="{{ asset('flowdesh_theme/images/bars.gif') }}" alt="" srcset=""></div>
+    <div class="preloader"><img src="{{ asset('flowdesh_theme/images/bars.gif') }}" alt="" srcset="">
+    </div>
 
     <!-- Header Layout -->
     <div class="mdk-header-layout js-mdk-header-layout">
@@ -80,7 +101,7 @@
                 <!-- // END drawer-layout__content -->
 
                 {{-- Side Bar --}}
-                    @include('backend.layouts.sidebar')
+                @include('backend.layouts.sidebar')
                 {{-- end side bar --}}
             </div>
             <!-- // END drawer-layout -->
@@ -104,7 +125,7 @@
     </div>
 
     <!-- jQuery -->
-    <script src="{{ asset('flowdesh_theme/vendor/jquery.min.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/jquery.min.js') }}"></script>
 
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
@@ -117,35 +138,35 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap -->
-    <script src="{{ asset('flowdesh_theme/vendor/popper.min.js')}}"></script>
-    <script src="{{ asset('flowdesh_theme/vendor/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/popper.min.js') }}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/bootstrap.min.js') }}"></script>
 
     <!-- Perfect Scrollbar -->
-    <script src="{{ asset('flowdesh_theme/vendor/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/perfect-scrollbar.min.js') }}"></script>
 
     <!-- DOM Factory -->
-    <script src="{{ asset('flowdesh_theme/vendor/dom-factory.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/dom-factory.js') }}"></script>
 
     <!-- MDK -->
-    <script src="{{ asset('flowdesh_theme/vendor/material-design-kit.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/vendor/material-design-kit.js') }}"></script>
 
     <!-- App -->
-    <script src="{{ asset('flowdesh_theme/js/toggle-check-all.js')}}"></script>
-    <script src="{{ asset('flowdesh_theme/js/check-selected-row.js')}}"></script>
-    <script src="{{ asset('flowdesh_theme/js/dropdown.js')}}"></script>
-    <script src="{{ asset('flowdesh_theme/js/sidebar-mini.js')}}"></script>
-    <script src="{{ asset('flowdesh_theme/js/app.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/js/toggle-check-all.js') }}"></script>
+    <script src="{{ asset('flowdesh_theme/js/check-selected-row.js') }}"></script>
+    <script src="{{ asset('flowdesh_theme/js/dropdown.js') }}"></script>
+    <script src="{{ asset('flowdesh_theme/js/sidebar-mini.js') }}"></script>
+    <script src="{{ asset('flowdesh_theme/js/app.js') }}"></script>
 
     <!-- App Settings (safe to remove) -->
-    <script src="{{ asset('flowdesh_theme/js/app-settings.js')}}"></script>
+    <script src="{{ asset('flowdesh_theme/js/app-settings.js') }}"></script>
 
     {{-- DropZone --}}
     <script src="{{ asset('flowdesh_theme/vendor/dropzone.min.js') }}"></script>
     <script src="{{ asset('flowdesh_theme/js/dropzone.js') }}"></script>
 
     <!-- imageUploader -->
-    <script src="{{ asset('flowdesh_theme/js/image-uploader.js')}}"></script>
-    
+    <script src="{{ asset('flowdesh_theme/js/image-uploader.js') }}"></script>
+
 
     <!-- Toastr -->
     <script src="{{ asset('flowdesh_theme/vendor/toastr.min.js') }}"></script>
@@ -153,12 +174,12 @@
 
     <script>
         $(document).ready(function() {
-            
-        let token = document.head.querySelector('meta[name="csrf-token"]');
-            if(token){
+
+            let token = document.head.querySelector('meta[name="csrf-token"]');
+            if (token) {
                 $.ajaxSetup({
                     headers: {
-                        'X-CSRF_TOKEN' : token.content
+                        'X-CSRF_TOKEN': token.content
                     }
                 });
             }
@@ -179,30 +200,28 @@
                 }
             })
 
-            @if(session('create'))
+            @if (session('create'))
                 Toast.fire({
                     icon: 'success',
-                    title: '{{session('create')}}'
+                    title: '{{ session('create') }}'
                 })
             @endif
 
-            @if(session('update'))
+            @if (session('update'))
                 console.log('updated');
                 Toast.fire({
                     icon: 'success',
-                    title: '{{session('update')}}'
+                    title: '{{ session('update') }}'
                 })
             @endif
-            
-            @if(session('delete'))
+
+            @if (session('delete'))
                 Toast.fire({
                     icon: 'success',
-                    title: '{{session('delete')}}'
+                    title: '{{ session('delete') }}'
                 })
             @endif
         });
-
-        
     </script>
     @yield('scripts')
 

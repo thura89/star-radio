@@ -895,7 +895,7 @@ jQuery(function($) {
                 }
             },
             cssSelectorAncestor: "#audio-player-radio",
-            swfPath: "assets/js/jPlayer/jquery.jplayer.swf",
+            swfPath: "starfm/assets/js/jPlayer/jquery.jplayer.swf",
             preload: "none"
         });
     }

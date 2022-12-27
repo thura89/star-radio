@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\News;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNews;
+use Yajra\Datatables\Datatables;
 use App\Http\Requests\UpdateNews;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
@@ -18,7 +18,7 @@ class NewsController extends Controller
     {
         if ($request->ajax()) {
             // News Category Local/International
-            $data = News::query()->whereIn('news_category',[1,2]);
+            $data = News::query()->whereIn('news_category',[1,2])->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('title',function($each){

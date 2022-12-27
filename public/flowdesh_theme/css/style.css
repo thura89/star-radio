@@ -1,11 +1,21 @@
 .icon {
     width: 160px;
     height: 160px;
-    background-image: url('/backend/images/star-fm-logo.jpeg');
+    background-image: url('/flowdesh_theme/images/starfm_logo.jpg');
     background-size: 160px;
     font-size: 30px;
     margin: 0 auto;
     margin-bottom: 10px;
+    border-radius: 10px;
+}
+.star_logo{
+    width:40px;
+    height:40px;
+    background-image: url('/flowdesh_theme/images/starfm_logo.jpg') !important;
+    background-size: 40px;
+    background-position: center;
+    border-radius: 5px;
+
 }
 
 .layout-login-centered-boxed__form{

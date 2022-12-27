@@ -27,7 +27,9 @@ class CreateSlider extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'front_image' => 'required',
+            'front_image.*' => 'image|mimes:jpeg,png,jpg',
             'background_image' => 'required',
+            'background_image.*' => 'image|mimes:jpeg,png,jpg',
         ];
     }
 }

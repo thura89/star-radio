@@ -8,9 +8,10 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Http\Requests\CreateAudio;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateAudio;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class AudioController extends Controller
 {
@@ -22,7 +23,7 @@ class AudioController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Audio::query();
+            $data = Audio::query()->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('image',function($each){
@@ -42,6 +43,17 @@ class AudioController extends Controller
                         ->editColumn('updated_at',function($each){
                             return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
                         })
+                        ->addColumn('live-active', function($each){
+                            if ($each->series_id == 1 ) {
+                                return '<a href="#" type="button" class="btn btn-danger btn-rounded" data-id="' . $each->id . '">
+                                            <span class="material-icons">play_circle_filled</span>
+                                    </a>';
+                            }else{
+                                return '<a href="#" type="button" class="btn btn-info btn-rounded liveradio" data-id="' . $each->id . '">
+                                            <span class="material-icons">play_circle_filled</span>
+                                    </a>';
+                            }
+                        })
                         ->addColumn('action', function($each){
 
                             $info = '<a href="'. route('admin.audios.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
@@ -57,7 +69,7 @@ class AudioController extends Controller
                             $action = '<div class="button-list">'.$collect.'</div>';
                             return $action ;
                         })
-                        ->rawColumns(['action','image','files'])
+                        ->rawColumns(['action','image','files','live-active'])
                         ->make(true);
         }
         return view('backend.audio_playlists.index');
@@ -79,7 +91,7 @@ class AudioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateAudio $request)
+    public function store(Request $request)
     {
         $image = null;
         if ($request->hasFile('image')) {
@@ -175,6 +187,18 @@ class AudioController extends Controller
         return redirect()->route('admin.audios.index')->with('update', 'Updated Successfully');
     }
 
+    
+    public function liveRadio($id)
+    {
+        $data = Audio::findOrFail($id);
+        $data->series_id = 1; //1 is make live temp 
+        $data->update();
+
+        Audio::where('id', '!=', $id)->update([
+            'series_id' => 0,
+        ]);
+        return $data;
+    }
     /**
      * Remove the specified resource from storage.
      *
