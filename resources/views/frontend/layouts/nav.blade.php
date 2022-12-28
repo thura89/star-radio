@@ -12,9 +12,9 @@
             </button>
             <div class="clearfix"></div>
             <ul class="dl-menu m-menu">
-                <li><a href="{{ route('home.index') }}">@lang('front_index.home')</a></li>
-                <li><a href="{{ route('home.programs') }}">@lang('front_index.program')</a></li>
-                <li class="parent"><a href="#">@lang('front_index.news')</a>
+                <li class="@yield('home-active')"><a href="{{ route('home.index') }}">@lang('front_index.home')</a></li>
+                <li class="@yield('programs-active')"><a href="{{ route('home.programs') }}">@lang('front_index.program')</a></li>
+                <li class="parent @yield('news-active')"><a href="#">@lang('front_index.news')</a>
                     <ul class="dl-submenu">
                         <li><a href="{{ route('home.news.all', config('const.LocalNews')) }}">@lang('front_index.local_news')</a></li>
                         <li><a
@@ -22,7 +22,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="parent"><a href="#">@lang('front_index.other_news')</a>
+                <li class="parent @yield('home-active')"><a href="#">@lang('front_index.other_news')</a>
                     <ul class="dl-submenu">
                         <li><a href="{{ route('home.news.all', config('const.Economic')) }}">@lang('front_index.economic')</a></li>
                         <li><a href="{{ route('home.news.all', config('const.Social')) }}">@lang('front_index.social')</a></li>
@@ -30,8 +30,8 @@
                         <li><a href="{{ route('home.news.all', config('const.TutaYata')) }}">@lang('front_index.tutayata')</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('home.events') }}">@lang('front_index.events')</a></li>
-                <li class="parent"><a href="{{ route('home.nobles') }}">@lang('front_index.noble')</a>
+                <li class="@yield('events-active')"><a href="{{ route('home.events') }}">@lang('front_index.events')</a></li>
+                <li class="parent @yield('nobles-active')"><a href="{{ route('home.nobles') }}">@lang('front_index.noble')</a>
                     <ul class="dl-submenu">
                         <li><a
                                 href="{{ route('home.nobles.cate', config('const.DailyNewsPaper')) }}">@lang('front_index.daily_news')</a>
@@ -39,9 +39,9 @@
                         <li><a href="{{ route('home.nobles.cate', config('const.Book')) }}">@lang('front_index.book')</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('home.about') }}">@lang('front_index.about')</a></li>
-                <li><a href="{{ route('home.contact') }}">@lang('front_index.contact')</a></li>
-                <li><a href="{{ route('home.songRequest') }}">@lang('front_index.song_request')</a></li>
+                <li class="@yield('about-active')"><a href="{{ route('home.about') }}">@lang('front_index.about')</a></li>
+                <li class="@yield('contact-active')"><a href="{{ route('home.contact') }}">@lang('front_index.contact')</a></li>
+                <li class="@yield('songRequest-active')"><a href="{{ route('home.songRequest') }}">@lang('front_index.song_request')</a></li>
                 @if (Agent::isMobile())
                     <li class="parent"><a href="#">{{ Str::upper(Session::get('locale')) }}</a>
                         <ul class="dl-submenu">

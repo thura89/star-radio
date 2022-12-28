@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Song Request')    
-@section('song_request-active', 'mm-active')
+@section('songRequest-active', 'active')
 
 @section('content')
      <!--=================================================

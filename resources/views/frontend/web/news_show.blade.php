@@ -1,13 +1,13 @@
 @extends('frontend.layouts.master')
 @section('title', 'news')
-@section('news-active', 'mm-active')
+@section('news-active', 'active')
 @section('content')
         <!--=================================
         Search and navigator
         =================================-->  
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6">
+                <div class="col-xs-12">
                     <div class="blogNavigator clearfix">
                         <a class="btn btn-default btnBackto" href="#"><i class="fa fa-chevron-circle-left"></i> @lang('front_index.back')</a>
                     </div><!--blogNavigator-->

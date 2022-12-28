@@ -9,3 +9,9 @@ article.articleSingle figure img{
 .parallax_one {
     background-image: asset('/public/starfm/assets/demo-data/parallax.jpg') !important;
 }
+
+@media (max-width: 767px){
+    .album-grid-wrap {
+        padding-top: 0px!important;
+    }
+}

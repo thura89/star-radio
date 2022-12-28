@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'news')
-@section('news-active', 'mm-active')
+@section('programs-active', 'active')
 @section('content')
 <!--=================================
     Albums

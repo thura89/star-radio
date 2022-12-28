@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'programs')
-@section('programs-active', 'mm-active')
+@section('programs-active', 'active')
 @section('content')
     <!--=================================
     Albums Section

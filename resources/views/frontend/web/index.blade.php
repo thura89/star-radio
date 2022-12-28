@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Home Page')
-@section('ads-active', 'mm-active')
+@section('home-active', 'active')
 @section('content')
     <!--=================================
                         Main Slider

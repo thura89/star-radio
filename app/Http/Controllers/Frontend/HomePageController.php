@@ -24,7 +24,7 @@ class HomePageController extends Controller
     {
         $programs = Program::with('category')->latest()->get();
         // 1 =  Trending
-        $trending_programs = Program::where('trending', 1)->with('category')->take('7')->latest()->get();
+        $trending_programs = Program::where('trending', 1)->with('category')->take('6')->latest()->get();
         $categories = Category::with('programs')->latest()->get();
         $all_news = News::take('4')->latest()->get();
         $news = News::whereIn('news_category',[1,2])->latest()->get();

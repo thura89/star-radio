@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Events')
-@section('events-active', 'mm-active')
+@section('events-active', 'active')
 @section('content')
      
      <!--=================================

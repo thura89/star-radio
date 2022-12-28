@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Nobles')
-@section('nobles-active', 'mm-active')
+@section('nobles-active', 'active')
 @section('content')
 
     <!--=================================================
@@ -10,7 +10,7 @@
         <header class="style4">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-8">
                         <h2 class="text-uppercase">
                             @if ($cate)
                                 @if ($cate == 1)
@@ -24,7 +24,7 @@
                             @endif
                         </h2>
                     </div>
-                    <div class="col-xs-6">
+                    <div class="col-xs-4">
                         <div class="text-right mt-15">
                             {{ $nobles->links() }}
                         </div>

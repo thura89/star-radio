@@ -89,13 +89,13 @@
                             <span class="sidebar-menu-text">@lang('sidebar.song_request') <span class="badge badge-primary ml-auto">NEW {{ Helper::songRequestCount() }}</span></span>
                         </a>
                     </li>
-                    <li class="sidebar-menu-item @yield('slider-active')">
+                    <li class="sidebar-menu-item @yield('about-active')">
                         <a class="sidebar-menu-button" href="{{ route('admin.about')}}">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">burst_mode</i>
                             <span class="sidebar-menu-text">@lang('sidebar.about')</span>
                         </a>
                     </li>
-                    <li class="sidebar-menu-item @yield('slider-active')">
+                    <li class="sidebar-menu-item @yield('contact-active')">
                         <a class="sidebar-menu-button" href="{{ route('admin.contact')}}">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">burst_mode</i>
                             <span class="sidebar-menu-text">@lang('sidebar.contact')</span>

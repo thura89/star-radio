@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title', 'Events Show')
-@section('events-active', 'mm-active')
+@section('events-active', 'active')
 @section('css')
     <style>
         #myImg {
