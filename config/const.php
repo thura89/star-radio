@@ -8,7 +8,8 @@ return [
         3 => 'Economic',
         4 => 'Social',
         5 => 'Health',
-        6 => 'Tuta Yata',
+        6 => 'Tuta Yatha',
+        7 => 'Sports',
     ],
     'news' => [
         1 => 'Local News',
@@ -18,7 +19,8 @@ return [
         3 => 'Economic',
         4 => 'Social',
         5 => 'Health',
-        6 => 'Tuta Yata',
+        6 => 'Tuta Yatha',
+        7 => 'Sports',    
     ],
     // path
     'event_image_path' => '/storage/events/image/',
@@ -49,7 +51,8 @@ return [
     'Economic' => 3,
     'Social' => 4,
     'Health' => 5,
-    'TutaYata' => 6,
+    'TutaYatha' => 6,
+    'Sports' => 7,
     'DailyNewsPaper' => 1,
     'Book' => 2,
 

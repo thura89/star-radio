@@ -17,7 +17,7 @@ class OthersNewsController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = News::query()->whereIn('news_category',[3,4,5,6])->latest();
+            $data = News::query()->whereIn('news_category',[3,4,5,6,7])->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('body',function($each){

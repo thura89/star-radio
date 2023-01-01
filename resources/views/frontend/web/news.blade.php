@@ -13,7 +13,6 @@
                     <div class="col-xs-12">
                         <h2>
                             @if (isset($id))
-                                
                                     @if($id == 1)
                                         @lang('front_index.local_news')
                                     @endif
@@ -36,6 +35,10 @@
 
                                     @if($id == 6)
                                         @lang('front_index.tutayata')
+                                    @endif
+
+                                    @if($id == 7)
+                                        @lang('front_index.sports')
                                     @endif
                                 {{-- {{ config('const.all_news_cat.' . $id . '') }} --}}
                             @else

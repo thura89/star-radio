@@ -20,7 +20,7 @@ class EventsController extends Controller
         // return 'here';
         if ($request->ajax()) {
             // News Category Local/International
-            $data = Event::query();
+            $data = Event::query()->latest();
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->editColumn('event_photo', function ($each) {

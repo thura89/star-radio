@@ -27,7 +27,8 @@
                         <li><a href="{{ route('home.news.all', config('const.Economic')) }}">@lang('front_index.economic')</a></li>
                         <li><a href="{{ route('home.news.all', config('const.Social')) }}">@lang('front_index.social')</a></li>
                         <li><a href="{{ route('home.news.all', config('const.Health')) }}">@lang('front_index.health')</a></li>
-                        <li><a href="{{ route('home.news.all', config('const.TutaYata')) }}">@lang('front_index.tutayata')</a></li>
+                        <li><a href="{{ route('home.news.all', config('const.TutaYatha')) }}">@lang('front_index.tutayata')</a></li>
+                        <li><a href="{{ route('home.news.all', config('const.Sports')) }}">@lang('front_index.sports')</a></li>
                     </ul>
                 </li>
                 <li class="@yield('events-active')"><a href="{{ route('home.events') }}">@lang('front_index.events')</a></li>

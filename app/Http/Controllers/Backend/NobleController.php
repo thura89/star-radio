@@ -22,7 +22,7 @@ class NobleController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Noble::query();
+            $data = Noble::query()->latest();
             return Datatables::of($data)
                         ->addIndexColumn()
                         ->editColumn('title',function($each){
