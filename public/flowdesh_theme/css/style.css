@@ -1,7 +1,7 @@
 .icon {
     width: 195px;
-    height: 130px;
-    background-image: url('/flowdesh_theme/images/starfm_new_logo.jpg');
+    height: 83px;
+    background-image: url('/flowdesh_theme/images/starfm.png');
     background-size: 195px;
     font-size: 30px;
     margin: 0 auto;
@@ -10,11 +10,11 @@
 }
 .star_logo{
     width:85px;
-    height:40px;
-    background-image: url('/flowdesh_theme/images/starfm_new_logo.jpg') !important;
+    height:35px;
+    background-image: url('/flowdesh_theme/images/starfm.png') !important;
     background-size: 85px;
     background-position: center;
-    border-radius: 5px;
+    margin-top: -10px;
 
 }
 

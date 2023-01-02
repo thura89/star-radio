@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" style="width: 18%" href="{{ route('home.index') }}">
-                <img src="{{ asset('starfm/assets/images/starfm_new_logo.jpg') }}" alt="" />
+            <a class="navbar-brand" style="width: 45%;margin-top:-20px;" href="{{ route('home.index') }}">
+                <img src="{{ asset('starfm/assets/images/starfm.png') }}" alt="STARFM RADIO" />
             </a>
         </div>
 
