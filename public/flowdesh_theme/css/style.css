@@ -1,18 +1,18 @@
 .icon {
-    width: 160px;
-    height: 160px;
-    background-image: url('/flowdesh_theme/images/starfm_logo.jpg');
-    background-size: 160px;
+    width: 195px;
+    height: 130px;
+    background-image: url('/flowdesh_theme/images/starfm_new_logo.jpg');
+    background-size: 195px;
     font-size: 30px;
     margin: 0 auto;
     margin-bottom: 10px;
     border-radius: 10px;
 }
 .star_logo{
-    width:40px;
+    width:85px;
     height:40px;
-    background-image: url('/flowdesh_theme/images/starfm_logo.jpg') !important;
-    background-size: 40px;
+    background-image: url('/flowdesh_theme/images/starfm_new_logo.jpg') !important;
+    background-size: 85px;
     background-position: center;
     border-radius: 5px;
 

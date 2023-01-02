@@ -1,10 +1,45 @@
 @extends('frontend.layouts.master')
-@section('title', 'news')
-@section('news-active', 'active')
+@if (isset($id))
+    @if ($id == 1)
+        @section('title', 'News')
+        @section('news-active', 'active')
+    @endif
+
+    @if ($id == 2)
+        @section('title', 'News')
+        @section('news-active', 'active')
+    @endif
+
+    @if ($id == 3)
+        @section('title', 'Other News')
+        @section('other-news-active', 'active')
+    @endif
+
+    @if ($id == 4)
+        @section('title', 'Other News')
+        @section('other-news-active', 'active')
+    @endif
+
+    @if ($id == 5)
+        @section('title', 'Other News')
+        @section('other-news-active', 'active')
+    @endif
+
+    @if ($id == 6)
+        @section('title', 'Other News')
+        @section('other-news-active', 'active')
+    @endif
+
+    @if ($id == 7)
+        @section('title', 'Other News')
+        @section('other-news-active', 'active')
+    @endif
+@endif
+
 @section('content')
     <!--=================================
-        Blog Section
-            =================================-->
+            Blog Section
+                =================================-->
     <section>
 
         <header class="style4">
@@ -13,33 +48,33 @@
                     <div class="col-xs-12">
                         <h2>
                             @if (isset($id))
-                                    @if($id == 1)
-                                        @lang('front_index.local_news')
-                                    @endif
+                                @if ($id == 1)
+                                    @lang('front_index.local_news')
+                                @endif
 
-                                    @if($id == 2)
-                                        @lang('front_index.internationl_news')
-                                    @endif
+                                @if ($id == 2)
+                                    @lang('front_index.internationl_news')
+                                @endif
 
-                                    @if($id == 3)
-                                        @lang('front_index.economic')
-                                    @endif
+                                @if ($id == 3)
+                                    @lang('front_index.economic')
+                                @endif
 
-                                    @if($id == 4)
-                                        @lang('front_index.social')
-                                    @endif
+                                @if ($id == 4)
+                                    @lang('front_index.social')
+                                @endif
 
-                                    @if($id == 5)
-                                        @lang('front_index.health')
-                                    @endif
+                                @if ($id == 5)
+                                    @lang('front_index.health')
+                                @endif
 
-                                    @if($id == 6)
-                                        @lang('front_index.tutayata')
-                                    @endif
+                                @if ($id == 6)
+                                    @lang('front_index.tutayata')
+                                @endif
 
-                                    @if($id == 7)
-                                        @lang('front_index.sports')
-                                    @endif
+                                @if ($id == 7)
+                                    @lang('front_index.sports')
+                                @endif
                                 {{-- {{ config('const.all_news_cat.' . $id . '') }} --}}
                             @else
                                 @lang('front_index.news')

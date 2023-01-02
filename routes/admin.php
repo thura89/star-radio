@@ -70,5 +70,5 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
     // Contact Us
     Route::post('/blog/{id}/edit', [DashboardController::class,'blog_store'])->name('blog.store');
 
-    
+    Route::get('/home', [DashboardController::class,'index'])->name('dashboard');
 });

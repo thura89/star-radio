@@ -93,8 +93,8 @@ jQuery(function($) {
             directionNav: true,
             controlNav: true,
             pauseOnHover: true,
-            slideshowSpeed: 7000,
-            slideshow: false,
+            slideshowSpeed: 5000,
+            slideshow: true,   //Boolean: Animate slider automatically
             direction: "horizontal", //Direction of slides
             start: function() {
                 $(window).trigger('resize');
@@ -174,10 +174,13 @@ jQuery(function($) {
         });
 
         $(".store-grid-slider").owlCarousel({
+            autoplaySpeed: 1000,
             navSpeed: 500,
             items: 5,
             dots: false,
             nav: true,
+            autoplay:true,
+            loop:true,
             navContainer: "#relatedAlbumsSlderNav",
             navText: ['<div class="col-xs-6"><a href="javascript:;"><i class="fa fa-arrow-left"></i> previous  Adv</a></div>', '<div class="col-xs-6"><a href="javascript:;"><i class="fa fa-arrow-right"></i> Next  Adv</a></div>'],
             responsive: {

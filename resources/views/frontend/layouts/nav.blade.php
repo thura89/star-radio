@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" style="width: 12%" href="{{ route('home.index') }}">
-                <img src="{{ asset('starfm/assets/images/starfm_logo.jpg') }}" alt="" />
+            <a class="navbar-brand" style="width: 18%" href="{{ route('home.index') }}">
+                <img src="{{ asset('starfm/assets/images/starfm_new_logo.jpg') }}" alt="" />
             </a>
         </div>
 
@@ -22,7 +22,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="parent @yield('home-active')"><a href="#">@lang('front_index.other_news')</a>
+                <li class="parent @yield('other-news-active')"><a href="#">@lang('front_index.other_news')</a>
                     <ul class="dl-submenu">
                         <li><a href="{{ route('home.news.all', config('const.Economic')) }}">@lang('front_index.economic')</a></li>
                         <li><a href="{{ route('home.news.all', config('const.Social')) }}">@lang('front_index.social')</a></li>
