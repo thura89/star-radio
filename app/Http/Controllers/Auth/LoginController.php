@@ -74,6 +74,9 @@ class LoginController extends Controller
             if (auth()->user()->user_type == 1) {
                 return redirect()->route('admin.dashboard');
             }
+            if (auth()->user()->user_type == 2) {
+                return redirect()->route('admin.dashboard');
+            }
         }else{
                 return redirect()->route('login')->with('fail', 'Username / Password invalid');
         }

@@ -21,6 +21,9 @@ class IsAdmin
             if(auth()->user()->user_type == 1){
                 return $next($request);
             }
+            if(auth()->user()->user_type == 2){
+                return $next($request);
+            }
         }
         return redirect('/')->with('error',"You don't have admin access.");
     }
