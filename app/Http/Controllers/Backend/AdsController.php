@@ -82,7 +82,6 @@ class AdsController extends Controller
      */
     public function store(CreateAds $request)
     {
-        // return $request->all();
         $image = null;
         if ($request->hasFile('image')) {
             $files = $request->file('image');
