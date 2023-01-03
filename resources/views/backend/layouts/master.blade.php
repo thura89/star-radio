@@ -122,7 +122,7 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- Laravel Javascript Validation -->
-    <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('flowdesh_theme/js/jsvalidation/jsvalidation.js') }}"></script>
 
     {{-- Sweet alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
