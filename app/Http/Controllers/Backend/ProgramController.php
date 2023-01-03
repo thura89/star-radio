@@ -12,6 +12,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProgram;
 use App\Http\Requests\UpdateProgram;
 use Illuminate\Support\Facades\Storage;
+use Pion\Laravel\ChunkUpload\Receiver\FileReceiver;
+use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
 
 class ProgramController extends Controller
 {
@@ -25,49 +27,49 @@ class ProgramController extends Controller
         if ($request->ajax()) {
             $data = Program::query()->with('category')->latest();
             return Datatables::of($data)
-                        ->addIndexColumn()
-                        ->editColumn('image',function($each){
-                            return '<div class="avatar avatar-lg avatar-4by3">
-                                        <img src="'.$each->program_img_path().'" alt="" class="avatar-img rounded">    
+                ->addIndexColumn()
+                ->editColumn('image', function ($each) {
+                    return '<div class="avatar avatar-lg avatar-4by3">
+                                        <img src="' . $each->program_img_path() . '" alt="" class="avatar-img rounded">    
                                     </div>';
-                        })
-                        ->editColumn('title',function($each){
-                            return Str::limit($each->title,45,'...');
-                        })
-                        
-                        ->editColumn('category_id',function($each){
-                            return $each->category_id ? $each->category->title  : '-';
-                        })
-                        ->editColumn('body',function($each){
-                            return Str::limit($each->body,45,'...');
-                        })
-                        ->editColumn('files',function($each){
-                            // return Str::limit($each->files,45,'...');
-                            return '<audio controls onplay="pauseOthers(this)">
-                            <source src="'.$each->program_audio_path().'" type="audio/mpeg">
+                })
+                ->editColumn('title', function ($each) {
+                    return Str::limit($each->title, 45, '...');
+                })
+
+                ->editColumn('category_id', function ($each) {
+                    return $each->category_id ? $each->category->title : '-';
+                })
+                ->editColumn('body', function ($each) {
+                    return Str::limit($each->body, 45, '...');
+                })
+                ->editColumn('files', function ($each) {
+                    // return Str::limit($each->files,45,'...');
+                    return '<audio controls onplay="pauseOthers(this)">
+                            <source src="' . $each->program_audio_path() . '" type="audio/mpeg">
                           Your browser does not support the audio element.
                           </audio>';
-                        })
-                        ->editColumn('updated_at',function($each){
-                            return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
-                        })
-                        ->addColumn('action', function($each){
+                })
+                ->editColumn('updated_at', function ($each) {
+                    return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
+                })
+                ->addColumn('action', function ($each) {
 
-                            $info = '<a href="'. route('admin.programs.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
+                    $info = '<a href="' . route('admin.programs.show', $each->id) . '" type="button" class="btn btn-info btn-rounded">
                                             <i class="material-icons">fullscreen</i>
                                     </a>';
-                            $edit = '<a href="'. route('admin.programs.edit',$each->id) .'" type="button" class="btn btn-light btn-rounded">
+                    $edit = '<a href="' . route('admin.programs.edit', $each->id) . '" type="button" class="btn btn-light btn-rounded">
                                             <i class="material-icons">edit</i>
                                     </a>';
-                            $delete = '<a href="#" type="button" class="btn btn-danger btn-rounded delete" data-id="' . $each->id . '">
+                    $delete = '<a href="#" type="button" class="btn btn-danger btn-rounded delete" data-id="' . $each->id . '">
                                             <i class="material-icons">close</i>
                                         </a>';
-                            $collect = $info.$edit.$delete;
-                            $action = '<div class="button-list">'.$collect.'</div>';
-                            return $action ;
-                        })
-                        ->rawColumns(['action','image','files'])
-                        ->make(true);
+                    $collect = $info . $edit . $delete;
+                    $action = '<div class="button-list">' . $collect . '</div>';
+                    return $action;
+                })
+                ->rawColumns(['action', 'image', 'files'])
+                ->make(true);
         }
         return view('backend.programs.index');
     }
@@ -79,7 +81,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        $categories = Category::select('id','title')->get();
+        $categories = Category::select('id', 'title')->get();
         return view('backend.programs.create', compact('categories'));
     }
 
@@ -94,33 +96,60 @@ class ProgramController extends Controller
         $image = null;
         if ($request->hasFile('image')) {
             $files = $request->file('image');
-            foreach($files as $file){
+            foreach ($files as $file) {
                 $extension = $file->getClientOriginalExtension();
-                $image = Str::random(5)."-".date('his')."-". Str::random(3).".".$extension;
-                Storage::disk('public')->put('programs/image/'.$image, file_get_contents($file));
+                $image = Str::random(5) . "-" . date('his') . "-" . Str::random(3) . "." . $extension;
+                Storage::disk('public')->put('programs/image/' . $image, file_get_contents($file));
             }
         }
-        $audio_file = null;
-        if ($request->hasFile('files')) {
-            $files = $request->file('files');
-            foreach($files as $file){
-                $extension = $file->getClientOriginalExtension();
-                $audio_file = Str::random(5)."-".date('his')."-". Str::random(3).".".$extension;
-                Storage::disk('public')->put('programs/audio_file/'.$audio_file, file_get_contents($file));
-            }
-        }
+        // return $request->all();
+        $audio = $request->audio_file;
+        // foreach ($request->files as $file) {
+        //     $audio = $file;
+        // }
         $data = new Program();
         $data->title = $request->title;
         $data->category_id = $request->category_id;
         $data->body = $request->body;
         $data->image = $image;
-        $data->files = $audio_file;
+        $data->files = $audio ?? null;
         $data->trending = $request->trending ?? '0';
         $data->save();
 
         return redirect()->route('admin.programs.index')->with('create', 'Created Successfully');
     }
-    
+
+    public function uploadAudioFiles(Request $request)
+    {
+        $receiver = new FileReceiver('file', $request, HandlerFactory::classFromRequest($request));
+
+        if (!$receiver->isUploaded()) {
+            // file not uploaded
+        }
+
+        $fileReceived = $receiver->receive(); // receive file
+        if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
+            $file = $fileReceived->getFile(); // get file
+            $extension = $file->getClientOriginalExtension();
+            $fileName = str_replace('.' . $extension, '', $file->getClientOriginalName()); //file name without extenstion
+            $fileName .= '_' .time(). '.' . $extension; // a unique file name
+
+            Storage::disk('public')->put('programs/audio_file/' . $fileName, file_get_contents($file));
+            // delete chunked file
+            unlink($file->getPathname());
+            return [
+                'path' => asset('storage/programs/audio_file/' . $fileName),
+                'filename' => $fileName
+            ];
+        }
+
+        // otherwise return percentage information
+        $handler = $fileReceived->handler();
+        return [
+            'done' => $handler->getPercentageDone(),
+            'status' => true
+        ];
+    }
 
     /**
      * Display the specified resource.
@@ -131,8 +160,8 @@ class ProgramController extends Controller
     public function show($id)
     {
         $data = Program::findOrFail($id);
-        $categories = Category::select('id','title')->get();
-        return view('backend.programs.edit', compact('categories','data'));
+        $categories = Category::select('id', 'title')->get();
+        return view('backend.programs.edit', compact('categories', 'data'));
     }
 
     /**
@@ -144,8 +173,8 @@ class ProgramController extends Controller
     public function edit($id)
     {
         $data = Program::findOrFail($id);
-        $categories = Category::select('id','title')->get();
-        return view('backend.programs.edit', compact('categories','data'));
+        $categories = Category::select('id', 'title')->get();
+        return view('backend.programs.edit', compact('categories', 'data'));
     }
 
     /**
@@ -162,24 +191,19 @@ class ProgramController extends Controller
         $image = $data->image;
         if ($request->hasFile('image')) {
             $files = $request->file('image');
-            Storage::disk('public')->delete('/programs/image/'.$image);
-            foreach($files as $file){
+            Storage::disk('public')->delete('/programs/image/' . $image);
+            foreach ($files as $file) {
                 $extension = $file->getClientOriginalExtension();
-                $image = Str::random(5)."-".date('his')."-". Str::random(3).".".$extension;
-                Storage::disk('public')->put('programs/image/'.$image, file_get_contents($file));
+                $image = Str::random(5) . "-" . date('his') . "-" . Str::random(3) . "." . $extension;
+                Storage::disk('public')->put('programs/image/' . $image, file_get_contents($file));
             }
         }
         $audio_file = $data->files;
-        if ($request->hasFile('files')) {
-            $files = $request->file('files');
-            Storage::disk('public')->delete('/programs/audio_file/'.$audio_file);
-            foreach($files as $file){
-                $extension = $file->getClientOriginalExtension();
-                $audio_file = Str::random(5)."-".date('his')."-". Str::random(3).".".$extension;
-                Storage::disk('public')->put('programs/audio_file/'.$audio_file, file_get_contents($file));
-            }
+        if ($request->audio_file) {
+            Storage::disk('public')->delete('/programs/audio_file/' . $audio_file);
+            $audio_file = $request->audio_file;
         }
-        
+
         $data->title = $request->title;
         $data->category_id = $request->category_id;
         $data->body = $request->body;

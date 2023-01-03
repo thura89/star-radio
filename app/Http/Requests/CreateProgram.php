@@ -29,8 +29,7 @@ class CreateProgram extends FormRequest
             'body' => 'required',
             'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg',
-            'files' => 'required',
-            'files.*' => 'file|mimes:mp3',
+            'audio_file' => 'required',
         ];
     }
 }

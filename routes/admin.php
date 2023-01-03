@@ -52,6 +52,7 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
 
     // Program
     Route::resource('/programs', ProgramController::class);
+    Route::post('/programs/audio', [ProgramController::class, 'uploadAudioFiles'])->name('audiofiles.upload.large');
 
     // Audio
     Route::resource('/audios', AudioController::class);

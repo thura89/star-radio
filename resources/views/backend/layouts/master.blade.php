@@ -157,6 +157,9 @@
     <!-- imageUploader -->
     <script src="{{ asset('flowdesh_theme/js/image-uploader.js') }}"></script>
 
+    <!-- resumablejs -->
+    <script src="https://cdn.jsdelivr.net/npm/resumablejs@1.1.0/resumable.min.js"></script>
+
 
     <!-- Toastr -->
     <script src="{{ asset('flowdesh_theme/vendor/toastr.min.js') }}"></script>
