@@ -3,8 +3,8 @@
 @section('home-active', 'active')
 @section('content')
     <!--=================================
-                        Main Slider
-                        =================================-->
+                            Main Slider
+                            =================================-->
     <section class="custom-slider">
         <div id="home-slider" class="xv_slider flexslider">
             <ul class="slides">
@@ -52,8 +52,8 @@
         </div>
     </section>
     <!--=================================
-                      Albums Section
-                      =================================-->
+                          Albums Section
+                          =================================-->
     <section>
         <header>
             <div class="container">
@@ -136,8 +136,8 @@
         </div>
     </section>
     <!--=================================================
-                      TOP songs /Trendding This week / Featured Songs
-                      ==================================================-->
+                          TOP songs /Trendding This week / Featured Songs
+                          ==================================================-->
     <section>
         <header>
             <div class="container">
@@ -217,8 +217,8 @@
 
     </section>
     <!--=================================================
-                      Latest News
-                      ==================================================-->
+                          Latest News
+                          ==================================================-->
     <section class="mt-30">
         <header class="style2">
             <div class="container">
@@ -263,8 +263,8 @@
 
     </section>
     <!--=================================
-                      Events/concerts
-                      =================================-->
+                          Events/concerts
+                          =================================-->
     <section>
         <header class="parallax parallax_two style3 text-center text-uppercase text-bold"
             data-stellar-background-ratio="0.5">
@@ -330,9 +330,54 @@
         </div>
         <!--container-->
     </section>
+
     <!--=================================================
-                      Contact
-                      ==================================================-->
+                          daily_schedule
+                          ==================================================-->
+    <section class="mt-30">
+        <header class="style2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="text-uppercase">@lang('front_index.daily_schedule') .</h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--section header-->
+
+        <div class="container">
+            <div class="row mt-50">
+                @foreach (($daily_schedules) ?? [] as $key => $daily_schedule)
+                <div class="col-xs-6">
+                    <div class="search-filters text-uppercase text-bold">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                <div class="searched-for" data-before="Programs : ">
+                                    <span class="s-keyword">{{ $key}}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 text-right">
+                                <div class="search-actions">
+                                    
+                                    <div class="searched-for" data-before="Time : ">
+                                        <span class="s-keyword">{{ $daily_schedule}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                @endforeach
+                
+            </div>
+        </div>
+        <!--container-->
+
+    </section>
+    <!--=================================================
+                          Contact
+                          ==================================================-->
     <section class="mb-50">
         <header>
             <div class="container">
@@ -487,7 +532,7 @@
                 }
             });
 
-           
+
         });
     </script>
 @endsection

@@ -60,8 +60,6 @@
                         @endif
                     </div>
                     <input type="file" class="form-control p-1" name="event_photo[]" id="event_photo">
-
-
                 </div>
                 <div class="form-group">
                     <label for="Body">@lang('event.body')</label>

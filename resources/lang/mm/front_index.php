@@ -54,4 +54,5 @@ return [
     'back' => 'နောက်သို့',
     'download_book' => 'ဤစာအုပ်ကိုဒေါင်းမည်',
     'download_news_papers' => 'ဤသတင်းစာစောင်များကိုဒေါင်းမည်',
+    'daily_schedule' => 'နေ့စဉ်အချိန်ဇယား'
 ];

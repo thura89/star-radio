@@ -102,4 +102,16 @@ class CommonController extends Controller
         $data = Blog::findOrFail(2);
         return view('frontend.web.blog',compact('data'));
     }
+    public function blogs(Request $request)
+    {
+        if ($request->path() == 'about') {
+            $data = Blog::findOrFail(1);
+        } elseif ($request->path()  == 'contact') {
+            $data = Blog::findOrFail(2);
+        } elseif ($request->path()  == 'daily_schedule') {
+            $data = Blog::findOrFail(3);
+        }
+        $images = json_decode($data['image']);
+        return view('frontend.web.blog',compact('data','images'));
+    }
 }

@@ -63,10 +63,16 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
 
     
     // About Us
-    Route::get('/about', [DashboardController::class,'about'])->name('about');
+    Route::get('/about', [DashboardController::class,'blogs'])->name('about');
 
     // Contact Us
-    Route::get('/contact', [DashboardController::class,'contact'])->name('contact');
+    Route::get('/contact', [DashboardController::class,'blogs'])->name('contact');
+
+    // Daily Schedule
+    Route::get('/daily_schedule', [DashboardController::class,'blogs'])->name('daily_schedule');
+
+    /// blogsave
+    Route::post('/blogsave', [DashboardController::class,'blog_store'])->name('blogsave');
 
     // Contact Us
     Route::post('/blog/{id}/edit', [DashboardController::class,'blog_store'])->name('blog.store');

@@ -110,6 +110,12 @@
                             <span class="sidebar-menu-text">@lang('sidebar.contact')</span>
                         </a>
                     </li>
+                    <li class="sidebar-menu-item @yield('daily_schedule-active')">
+                        <a class="sidebar-menu-button" href="{{ route('admin.daily_schedule') }}">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">burst_mode</i>
+                            <span class="sidebar-menu-text">@lang('sidebar.daily_schedule')</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

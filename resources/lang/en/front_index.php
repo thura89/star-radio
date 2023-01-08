@@ -55,6 +55,7 @@ return [
     'back' => 'Back',
     'download_book' => 'Download This Book',
     'download_news_papers' => 'Download This NewsPaper',
+    'daily_schedule' => 'Daily Schedule'
 
 
 

@@ -18,6 +18,7 @@ return [
     'edit' => 'Edit',
     'title' => 'Title',
     'body' => 'Body',
+    'image' => 'Images',
     'submit' => 'Submit'
 
 ];

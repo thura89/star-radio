@@ -24,6 +24,7 @@ return [
     ],
     // path
     'event_image_path' => '/storage/events/image/',
+    'blog_image_path' => '/storage/blogs/image/',
     'noble_category' => [
         1 => 'Daily News Paper',
         2 => 'Book',

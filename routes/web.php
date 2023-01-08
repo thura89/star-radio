@@ -49,6 +49,14 @@ Route::get('/about', [CommonController::class, 'about'])->name('home.about');
 // Contact
 Route::get('/contact', [CommonController::class, 'contact'])->name('home.contact');
 
+// About Us
+Route::get('/about', [CommonController::class,'blogs'])->name('home.about');
+
+// Contact Us
+Route::get('/contact', [CommonController::class,'blogs'])->name('home.contact');
+
+// Daily Schedule
+Route::get('/daily_schedule', [CommonController::class,'blogs'])->name('home.daily_schedule');
 
 Auth::routes();
 

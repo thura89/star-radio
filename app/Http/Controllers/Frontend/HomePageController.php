@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Ads;
+use App\Models\Blog;
 use App\Models\News;
 use App\Models\Event;
 use App\Models\Noble;
 use App\Models\Slider;
 use App\Models\Program;
+use App\Models\Category;
 use App\Models\SongRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 
 class HomePageController extends Controller
 {
@@ -34,7 +35,9 @@ class HomePageController extends Controller
         $ads = Ads::latest()->get();
         $song_requests = SongRequest::get();
         $sliders = Slider::where('status',1)->take(3)->latest('updated_at')->get();
-        return view('frontend.web.index',compact('all_news','categories','programs','news','other_news','events','noble','ads','sliders','song_requests','trending_programs'));
+        $daily_schedules = Blog::findOrFail(3);
+        $daily_schedules = json_decode($daily_schedules->body);
+        return view('frontend.web.index',compact('all_news','categories','programs','news','other_news','events','noble','ads','sliders','song_requests','trending_programs','daily_schedules'));
     }
 
 

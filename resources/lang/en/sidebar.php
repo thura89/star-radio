@@ -27,6 +27,7 @@ return [
     'play_audio' => 'Play Audio',
     'song_request' => 'Song Request',
     'contact' => 'Contact',
-    'about' => 'About'
+    'about' => 'About',
+    'daily_schedule' => 'Daily Schedule',
 
 ];
