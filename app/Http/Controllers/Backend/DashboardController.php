@@ -49,7 +49,7 @@ class DashboardController extends Controller
         $decode_images = json_decode($data['image']);
         $images = [];
         if ($request->path()  != 'admin/daily_schedule') {
-            foreach ($decode_images as $key => $image) {
+            foreach ($decode_images ?? [] as $key => $image) {
                 $images[] = [
                     'id' => $image,
                     'src' => asset(config('const.blog_image_path')) . '/' . $image

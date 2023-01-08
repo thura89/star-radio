@@ -111,7 +111,7 @@ class CommonController extends Controller
         } elseif ($request->path()  == 'daily_schedule') {
             $data = Blog::findOrFail(3);
         }
-        $images = json_decode($data['image']);
+        $images = json_decode($data['image']) ?? [];
         return view('frontend.web.blog',compact('data','images'));
     }
 }
