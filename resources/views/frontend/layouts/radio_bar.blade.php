@@ -1,5 +1,7 @@
 
-        <div id="audio-player-radio" class="jp-radioPlayer" data-radio-url="{{ Helper::Radio()->audio_playlist_file_path() }}" data-title="Star FM Radio">
+        {{-- {{ Helper::Radio()->audio_playlist_file_path() }} --}}
+        {{-- Local Play --}}
+        <div id="audio-player-radio" class="jp-radioPlayer" data-radio-url="" data-title="Star FM Radio">
             <div class="container">
                 <div id="player-instance-radio" class="jp-jplayer"></div>
                 <div class="controls jp-controls-holder">
@@ -49,3 +51,4 @@
                 </div>
             </div>
         </div>
+        
