@@ -241,12 +241,12 @@
                             </figure>
                             <div class="about-article text-center text-uppercase">
                                 <h3 class="text-semibold"><a
-                                        href="blog-single.html">{{ Str::limit($all_new->title, 20, '...') }}</a></h3>
+                                        href="{{ route('home.news.show', $all_new->id) }}">{{ Str::limit($all_new->title, 20, '...') }}</a></h3>
                                 <span>{{ \Carbon\Carbon::parse($all_new->updated_at)->format('M d') }}</span>
                             </div>
 
                             <p>{{ Str::limit($all_new->body, 200, '...') }}</p>
-                            <a href="" class="btn btn-transparent text-uppercase text-semibold">@lang('front_index.read_more')</a>
+                            <a href="{{ route('home.news.show', $all_new->id) }}" class="btn btn-transparent text-uppercase text-semibold">@lang('front_index.read_more')</a>
                         </article>
                     </div>
                 @endforeach
