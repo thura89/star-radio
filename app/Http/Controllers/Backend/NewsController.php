@@ -38,6 +38,7 @@ class NewsController extends Controller
                         ->editColumn('updated_at',function($each){
                             return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
                         })
+                        ->addColumn('checkbox', '<input type="checkbox" name="users_checkbox[]" class="users_checkbox" value="{{$id}}" />')
                         ->addColumn('action', function($each){
 
                             $info = '<a href="'. route('admin.news.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
@@ -53,7 +54,7 @@ class NewsController extends Controller
                             $action = '<div class="button-list">'.$collect.'</div>';
                             return $action ;
                         })
-                        ->rawColumns(['action','image'])
+                        ->rawColumns(['action','image','checkbox'])
                         ->make(true);
         }
         return view('backend.news.index');
@@ -122,7 +123,21 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $data = News::findOrFail($id);
-        Storage::disk('public')->delete('news/'.$data->images);
+        Storage::disk('public')->delete('news/'.$data->image);
         $data->delete();
+    }
+
+    function removeall(Request $request)
+    {
+        $id_array = $request->input('id');
+        $datas = News::whereIn('id', $id_array);
+        foreach ($id_array as $key => $data) {
+            $data = News::findOrFail($data);
+            Storage::disk('public')->delete('news/'.$data->image);
+        }
+        if($datas->delete())
+        {
+            return response()->json(array('success' => true, 'data' => $id_array));
+        }
     }
 }

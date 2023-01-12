@@ -42,6 +42,7 @@ class NobleController extends Controller
                         ->editColumn('updated_at',function($each){
                             return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
                         })
+                        ->addColumn('checkbox', '<input type="checkbox" name="users_checkbox[]" class="users_checkbox" value="{{$id}}" />')
                         ->addColumn('action', function($each){
 
                             $info = '<a href="'. route('admin.nobles.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
@@ -57,7 +58,7 @@ class NobleController extends Controller
                             $action = '<div class="button-list">'.$collect.'</div>';
                             return $action ;
                         })
-                        ->rawColumns(['action','image'])
+                        ->rawColumns(['action','image','checkbox'])
                         ->make(true);
         }
         return view('backend.nobles.index');
@@ -184,5 +185,20 @@ class NobleController extends Controller
         Storage::disk('public')->delete('nobles/image/' . $data->image);
         Storage::disk('public')->delete('nobles/file/' . $data->download_file);
         $data->delete();
+    }
+
+    function removeall(Request $request)
+    {
+        $id_array = $request->input('id');
+        $datas = Noble::whereIn('id', $id_array);
+        foreach ($id_array as $key => $data) {
+            $data = Noble::findOrFail($data);
+            Storage::disk('public')->delete('nobles/image/' . $data->image);
+            Storage::disk('public')->delete('nobles/file/' . $data->download_file);
+        }
+        if($datas->delete())
+        {
+            return response()->json(array('success' => true, 'data' => $id_array));
+        }
     }
 }

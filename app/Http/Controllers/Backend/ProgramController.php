@@ -53,6 +53,7 @@ class ProgramController extends Controller
                 ->editColumn('updated_at', function ($each) {
                     return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
                 })
+                ->addColumn('checkbox', '<input type="checkbox" name="users_checkbox[]" class="users_checkbox" value="{{$id}}" />')
                 ->addColumn('action', function ($each) {
 
                     $info = '<a href="' . route('admin.programs.show', $each->id) . '" type="button" class="btn btn-info btn-rounded">
@@ -68,7 +69,7 @@ class ProgramController extends Controller
                     $action = '<div class="button-list">' . $collect . '</div>';
                     return $action;
                 })
-                ->rawColumns(['action', 'image', 'files'])
+                ->rawColumns(['action', 'image', 'files','checkbox'])
                 ->make(true);
         }
         return view('backend.programs.index');
@@ -227,5 +228,20 @@ class ProgramController extends Controller
         Storage::disk('public')->delete('programs/image/' . $data->image);
         Storage::disk('public')->delete('programs/audio_file/' . $data->files);
         $data->delete();
+    }
+
+    function removeall(Request $request)
+    {
+        $id_array = $request->input('id');
+        $datas = Program::whereIn('id', $id_array);
+        foreach ($id_array as $key => $data) {
+            $data = Program::findOrFail($data);
+            Storage::disk('public')->delete('programs/image/' . $data->image);
+            Storage::disk('public')->delete('programs/audio_file/' . $data->files);
+        }
+        if($datas->delete())
+        {
+            return response()->json(array('success' => true, 'data' => $id_array));
+        }
     }
 }

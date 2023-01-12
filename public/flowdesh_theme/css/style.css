@@ -98,3 +98,7 @@
     color: #ffffff;
     background: rgba(255, 255, 255, 0.12);
 }
+
+.swal2-actions > button{
+    margin-left : 10px;
+}

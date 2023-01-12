@@ -28,6 +28,9 @@
                 <table class="table table-striped table-bordered DataTables" id="getdata" style="width:100%">
                     <thead>
                         <tr>
+                            <th><button type="button" name="bulk_delete" id="bulk_delete"
+                                class="btn btn-sm btn-danger btn-rounded"><i
+                                    class="material-icons icon-20pt">delete_sweep</i></button></th>
                             <th class="no-sort">Image</th>
                             <th>Title</th>
                             <th>Category</th>
@@ -47,9 +50,9 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         function pauseOthers(el) {
-                $("audio").not(el).each(function(index, audio) {
-                    audio.pause();
-                });
+            $("audio").not(el).each(function(index, audio) {
+                audio.pause();
+            });
         }
         $(document).ready(function() {
             var table = $('#getdata').DataTable({
@@ -58,6 +61,12 @@
                 ajax: '{!! route('admin.programs.index') !!}',
                 aaSorting: [],
                 columns: [{
+                        data: 'checkbox',
+                        name: 'checkbox',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
                         data: 'image',
                         name: 'image'
                     },
@@ -91,11 +100,74 @@
                     },
                 ],
                 columnDefs: [{
-                    "targets": 'no-sort',
-                    "orderable": false,
-                }, ]
+                    orderable: false,
+                    className: 'text-center',
+                    targets: 0,
+                }]
             });
 
+            $(document).on('click', '#bulk_delete', function() {
+                var id = [];
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                    customClass: 'sssss'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $('.users_checkbox:checked').each(function() {
+                            id.push($(this).val());
+                        });
+                        if (id.length > 0) {
+                            $.ajax({
+                                url: "{{ route('admin.programs.removeall') }}",
+                                headers: {
+                                    'contentType': 'application/json; charset=utf-8',
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                        'content'),
+                                    '_token': "{{ csrf_token() }}",
+                                },
+                                method: "POST",
+                                type: 'POST',
+                                data: {
+                                    id: id,
+                                    '_token': "{{ csrf_token() }}",
+                                },
+                                dataType: 'json',
+                                success: function(data) {
+                                    console.log(data);
+                                    toastr.success('Successfully deleted');
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'Your file has been deleted.',
+                                        'success'
+                                    )
+                                    table.ajax.reload();
+                                },
+                                error: function(data) {
+                                    var errors = data.responseJSON;
+                                    console.log(errors);
+                                    toastr.warning(errors);
+                                }
+                            });
+                        } else {
+                            Swal.fire(
+                                'Sorry!',
+                                'Please select atleast one checkbox!',
+                                'warning'
+                            )
+                        }
+                    }
+                })
+
+
+            });
 
             $(document).on('click', '.delete', function(e) {
                 e.preventDefault();
@@ -128,7 +200,7 @@
                 });
             });
 
-            
+
         });
     </script>
 @endsection

@@ -29,17 +29,21 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
     
     Route::get('/change_password', [UsersController::class,'change_password'])->name('change_password');
     Route::post('/change-password', [UsersController::class, 'changePasswordSave'])->name('postChangePassword');
+    
     // News
     Route::resource('/news', NewsController::class);
+    Route::post('/news/removeall', [NewsController::class, 'removeall'])->name('news.removeall');
     
     // other News
     Route::resource('/other_news', OthersNewsController::class);
+    Route::post('/other_news/removeall', [OthersNewsController::class, 'removeall'])->name('other_news.removeall');
 
     // Event
     Route::resource('/events', EventsController::class);
 
     // Noble
     Route::resource('/nobles', NobleController::class);
+    Route::post('/nobles/removeall', [NobleController::class, 'removeall'])->name('nobles.removeall');
 
     // ADS
     Route::resource('/ads', AdsController::class);
@@ -53,6 +57,7 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
     // Program
     Route::resource('/programs', ProgramController::class);
     Route::post('/programs/audio', [ProgramController::class, 'uploadAudioFiles'])->name('audiofiles.upload.large');
+    Route::post('/programs/removeall', [ProgramController::class, 'removeall'])->name('programs.removeall');
 
     // Audio
     Route::resource('/audios', AudioController::class);
