@@ -40,13 +40,13 @@ class SongRequestController extends Controller
                             $info = '<a href="'. route('admin.song_requests.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
                                             <i class="material-icons">fullscreen</i>
                                     </a>';
-                            $edit = '<a href="'. route('admin.song_requests.edit',$each->id) .'" type="button" class="btn btn-light btn-rounded">
-                                            <i class="material-icons">edit</i>
-                                    </a>';
+                            // $edit = '<a href="'. route('admin.song_requests.edit',$each->id) .'" type="button" class="btn btn-light btn-rounded">
+                            //                 <i class="material-icons">edit</i>
+                            //         </a>';
                             $delete = '<a href="#" type="button" class="btn btn-danger btn-rounded delete" data-id="' . $each->id . '">
                                             <i class="material-icons">close</i>
                                         </a>';
-                            $collect = $info.$edit.$delete;
+                            $collect = $info.$delete;
                             $action = '<div class="button-list">'.$collect.'</div>';
                             return $action ;
                         })

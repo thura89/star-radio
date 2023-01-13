@@ -17,8 +17,8 @@
                 </nav>
                 <h1 class="m-0">@lang('song_request.song_request') </h1>
             </div>
-            <a href="{{ route('admin.song_requests.create') }}" class="btn btn-primary ml-3">@lang('back_content.create') <i
-                    class="material-icons">add</i></a>
+            {{-- <a href="{{ route('admin.song_requests.create') }}" class="btn btn-primary ml-3">@lang('back_content.create') <i
+                    class="material-icons">add</i></a> --}}
         </div>
     </div>
 
