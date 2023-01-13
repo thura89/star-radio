@@ -34,6 +34,7 @@ class SongRequestController extends Controller
                         ->editColumn('updated_at',function($each){
                             return Carbon::parse($each->created_at)->format('d-m-y H:i:s');
                         })
+                        ->addColumn('checkbox', '<input type="checkbox" name="users_checkbox[]" class="users_checkbox" value="{{$id}}" />')
                         ->addColumn('action', function($each){
 
                             $info = '<a href="'. route('admin.song_requests.show',$each->id) .'" type="button" class="btn btn-info btn-rounded">
@@ -49,7 +50,7 @@ class SongRequestController extends Controller
                             $action = '<div class="button-list">'.$collect.'</div>';
                             return $action ;
                         })
-                        ->rawColumns(['action'])
+                        ->rawColumns(['action','checkbox'])
                         ->make(true);
         }
         return view('backend.song_requests.index');
@@ -136,8 +137,22 @@ class SongRequestController extends Controller
      * @param  \App\Models\SongRequest  $songRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SongRequest $songRequest)
+    public function destroy(Request $request)
     {
-        //
+        $data = SongRequest::findOrFail($request->input('rid'));
+        if($data->delete())
+        {
+            return response()->json(array('success' => true, 'data' => $data));
+        }
+    }
+
+    function removeall(Request $request)
+    {
+        $id_array = $request->input('id');
+        $datas = SongRequest::whereIn('id', $id_array);
+        if($datas->delete())
+        {
+            return response()->json(array('success' => true, 'data' => $id_array));
+        }
     }
 }

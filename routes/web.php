@@ -21,7 +21,6 @@ use App\Http\Controllers\LocalizationController;
 Route::get('/home/locale/{lange}', [LocalizationController::class,'homesetlang']);
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
-Route::get('/news', [HomePageController::class, 'news'])->name('home.news');
 Route::get('/programs', [ProgramController::class, 'index'])->name('home.programs');
 Route::get('/category/{category}/programs', [ProgramController::class, 'programs'])->name('home.category_programs');
 Route::get('/programs/{id}/show', [ProgramController::class, 'show'])->name('home.programs.show');
@@ -29,7 +28,7 @@ Route::get('/news/{id}/all', [CommonController::class, 'news'])->name('home.news
 Route::get('/news/{id}/show', [CommonController::class, 'show'])->name('home.news.show');
 Route::get('/all_news', [CommonController::class, 'all_news'])->name('home.all_news');
 Route::get('/news', [HomePageController::class, 'news'])->name('home.news');
-Route::get('/other_news', [HomePageController::class, 'news'])->name('home.news');
+Route::get('/other_news', [HomePageController::class, 'news'])->name('home.other_news');
 
 // Events
 Route::get('/events', [CommonController::class, 'events'])->name('home.events');

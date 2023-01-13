@@ -65,6 +65,8 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
 
     // Song Request
     Route::resource('/song_requests', SongRequestController::class);
+    Route::post('/song_requests/delete', [SongRequestController::class,'destroy'])->name('song_requests.remove');
+    Route::post('/song_requests/removeall', [SongRequestController::class, 'removeall'])->name('song_requests.removeall');
 
     
     // About Us
@@ -82,5 +84,5 @@ Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function (
     // Contact Us
     Route::post('/blog/{id}/edit', [DashboardController::class,'blog_store'])->name('blog.store');
 
-    Route::get('/home', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/home', [DashboardController::class,'index']);
 });
