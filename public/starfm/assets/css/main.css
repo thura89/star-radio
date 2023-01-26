@@ -3586,6 +3586,26 @@ ul.pagination{
 .pagination li.active a,.pagination li.active > span{
      pointer-events: none;
 }
+
+/*===============================
+Daily Schedule
+===============================*/
+.dialy_sche{
+    border-bottom: 1px solid #b2b2b2;
+    /* text-uppercase text-bold */
+}
+.dialy_sche p{
+    padding: 15px 0!important;
+    color: #C5C8C9;
+}
+.dialy_sche span{
+    /* padding: 15px 0!important; */
+    color: #92C84D;
+}
+.daily_time{
+    
+}
+
 /* ============================
 27-Responsive
 =========================== */

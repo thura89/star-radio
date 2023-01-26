@@ -349,8 +349,22 @@
         <div class="container">
             <div class="row mt-50">
                 @foreach (($daily_schedules) ?? [] as $key => $daily_schedule)
-                <div class="col-xs-6">
-                    <div class="search-filters text-uppercase text-bold">
+                <div class="col-md-6">
+
+                    <div class="dialy_sche text-uppercase text-bold">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <p class="daily_sche_programs">PROGRAMS : <span>{{ $key}}</span></p>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="daily_time">
+                                    <p class="@if (Agent::isMobile()) text-left @else text-right @endif">TIME : <span class=""> {{ $daily_schedule}}</span></p>
+                                </span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="search-filters text-uppercase text-bold">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8 col-md-8">
                                 <div class="searched-for" data-before="Programs : ">
@@ -366,7 +380,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>    
                 @endforeach
                 
