@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Carbon\Carbon;
+use App\Models\Program;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -158,5 +159,15 @@ class CategoryController extends Controller
         $data = Category::findOrFail($id);
         Storage::disk('public')->delete('categories/' . $data->image);
         $data->delete();
+
+        foreach ($data->programs as $key => $data) {
+            $data = Program::findOrFail($data->id);
+            Storage::disk('public')->delete('programs/image/' . $data->image);
+            Storage::disk('public')->delete('programs/audio_file/' . $data->files);
+            $data->delete();
+        }
+        
+        // Storage::disk('public')->delete('categories/' . $data->image);
+        // $data->delete();
     }
 }

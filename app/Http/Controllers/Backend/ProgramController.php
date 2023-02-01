@@ -38,7 +38,7 @@ class ProgramController extends Controller
                 })
 
                 ->editColumn('category_id', function ($each) {
-                    return $each->category_id ? $each->category->title : '-';
+                    return $each->category->title ?? '-';
                 })
                 ->editColumn('body', function ($each) {
                     return Str::limit($each->body, 45, '...');
