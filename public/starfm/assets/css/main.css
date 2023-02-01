@@ -3947,9 +3947,20 @@ Daily Schedule
     .custom-slider .about-album,.albumAction{
         text-align: center;
     }
-    .slide-visual,ul.pagination:before,.event-unit > div:before,
+    /* .slide-visual,ul.pagination:before,.event-unit > div:before,
     .event-unit > div:after {
         display: none;
+    } */
+    .xv_slider.flexslider .slides img {
+        width: auto;
+        max-width: 30%;
+        margin-left: 35%;
+        margin-right: 35%;
+        margin-top: 5%;
+    }
+    .flexslider .slides > li{
+        background-position: center;
+        background-size: cover;
     }
     .search-actions ul + ul {
         border: none;
