@@ -1,5 +1,6 @@
 article.articleSingle figure{
-    max-height: 300px !important;
+    max-height: none !important;
+    height: auto !important;
     margin-bottom: 40px;
     border-radius: 3px !important;
 }
