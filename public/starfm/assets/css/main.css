@@ -3959,7 +3959,7 @@ Daily Schedule
         margin-top: 5%;
     }
     .flexslider .slides > li{
-        background-position: center;
+        background-position: right;
         background-size: cover;
     }
     .search-actions ul + ul {
