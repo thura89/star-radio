@@ -2576,7 +2576,7 @@ article a.btn {
 
 article figure {
     text-align: center;
-    height: auto;
+    max-height: 500px;
     overflow: hidden;
     border-radius: 3px;
 }
